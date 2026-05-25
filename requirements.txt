@@ -2,3 +2,4 @@ streamlit
 google-genai
 python-pptx
 PyPDF2
+python-dotenv

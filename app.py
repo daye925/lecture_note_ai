@@ -4,7 +4,19 @@ from pptx import Presentation
 import PyPDF2
 import base64
 
-client = genai.Client(api_key="AIzaSyD0w5Yu8grH7cCIzaWUbAc4ksH8192hZeU")
+from dotenv import load_dotenv
+import os
+import streamlit as st
+
+load_dotenv()
+
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    api_key = st.secrets["GEMINI_API_KEY"]
+
+
+client = genai.Client(api_key=api_key)
 
 st.set_page_config(
     page_title="벼락치기 AI 노트",
